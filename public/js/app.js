@@ -1940,7 +1940,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     buttonText: function buttonText() {
-      return this.status ? 'Unfollow' : 'Follow';
+      return this.status ? 'Deixar de seguir' : 'Seguir';
     }
   }
 });
@@ -49663,8 +49663,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\projetos\Laravel\FreeCodeGram\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\projetos\Laravel\FreeCodeGram\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\projetos\Laravel\CodeGram\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\projetos\Laravel\CodeGram\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
