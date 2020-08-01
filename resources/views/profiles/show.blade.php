@@ -10,7 +10,7 @@
             <div class="d-flex align-items-center">
                 <h1 class="pr-3">{{$user->username}}</h1>
                 @can('update', $user->profile)
-                <div class=""><a class="btn btn-outline-dark btn-sm" href="/profile/{{ $user->id }}/edit">Edit profile</a></div>
+                <div class=""><a class="btn btn-outline-dark btn-sm" href="/profile/{{ $user->id }}/edit">Editar perfil</a></div>
                 @endcan
                 <?php $authUserId = isset(auth()->user()->id)? auth()->user()->id: '' ?>
                 @if(isset(auth()->user()->id) && $user->id != $authUserId)
@@ -19,15 +19,15 @@
 
             </div>
             <div class="d-flex pb-3">
-                <div class="pr-3"><strong>{{ $user->posts->count() }}</strong> posts</div>
-                <div class="pr-3"><strong>{{ $user->profile->followers->count() }}</strong> followers</div>
-                <div class=""><strong>{{ $user->following->count() }}</strong> following</div>
+                <div class="pr-3"><strong>{{ $user->posts->count() }}</strong> publicações</div>
+                <div class="pr-3"><strong>{{ $user->profile->followers->count() }}</strong> seguidores</div>
+                <div class=""><strong>{{ $user->following->count() }}</strong> seguindo</div>
             </div>
             <div><strong>{{$user->name}}</strong></div>
             <div><p>{{$user->profile->description}}</p></div>
             <div><a href="">{{$user->profile->url}}</strong></a></div>
             @can('update', $user->profile)
-            <div><a href="/p/create" class="btn btn-info text-light mt-3">Add New post</a></div>
+            <div><a href="/p/create" class="btn btn-info text-light mt-3">Fazer nova publicação</a></div>
             @endcan
         </div>
     </div>

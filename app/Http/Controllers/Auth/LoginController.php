@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -26,7 +27,24 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/explore';
+
+    protected function redirectTo()
+    {
+       $user = auth()->user()->id;
+        return '/profile/' . $user;
+    }
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return $this->loggedOut($request) ?: redirect('/login');
+    }
 
     /**
      * Create a new controller instance.
