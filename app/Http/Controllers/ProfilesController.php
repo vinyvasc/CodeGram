@@ -10,15 +10,15 @@ class ProfilesController extends Controller
 {
     //
     public function show(User $user) {
-        
+
         $follows = auth()->user()? auth()->user()->following->contains($user->id): false;
-        
+
         return view('profiles/show', [
             'user' => $user,
             'follows'=> $follows,
         ]);
 
-        
+
     }
 
     public function edit(User $user) {
@@ -35,7 +35,7 @@ class ProfilesController extends Controller
         $data = request()->validate([
             'description' => 'nullable',
             'url' => 'nullable|url',
-            'image' => '',
+            'image' => 'nullable|image',
         ]);
 
         if(request('image')) {
