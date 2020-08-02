@@ -11,9 +11,9 @@ class ExploreController extends Controller
     public function index(Request $request) {
         $username = $request->input('username');
         $username = '%' . $username . '%';
-        $whoFollows = User::whereRaw('username like ?', [$username])->get();
-        //$whoFollows = DB::table('users')->whereRaw('username like ?', [$username])->get();
+        $whoFollows = User::where('username', 'like', $username)->get();
 
-        return view('profiles/explore', compact('whoFollows'));
+        return $request->input('username') == ''?
+            view('profiles/explore'): view('profiles/explore', compact('whoFollows'));
     }
 }
